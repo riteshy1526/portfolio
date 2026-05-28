@@ -1,0 +1,142 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  color:#fff;
+  background: radial-gradient(circle at top,#0f0c29,#000);
+  overflow-x:hidden;
+}
+
+/* glowing background */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  filter:blur(160px);
+  opacity:0.4;
+  z-index:-1;
+}
+
+body::before{
+  background:#7c3aed;
+  top:-120px;
+  left:-120px;
+}
+
+body::after{
+  background:#2563eb;
+  bottom:-120px;
+  right:-120px;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 25px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin:0 10px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#a78bfa;
+}
+
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+h1{
+  font-size:60px;
+  background:linear-gradient(90deg,#a78bfa,#60a5fa,#34d399);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.tagline{
+  margin-top:10px;
+  color:#cfcfcf;
+}
+
+/* SECTIONS */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+/* GLASS CARD */
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:25px;
+  margin:20px 0;
+  backdrop-filter:blur(12px);
+}
+
+/* HEADINGS */
+h2{
+  color:#a78bfa;
+  margin-bottom:10px;
+}
+
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  margin:5px;
+  padding:6px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.08);
+}
+
+/* PROJECT */
+.project{
+  margin-top:10px;
+  padding:15px;
+  background:rgba(255,255,255,0.05);
+  border-radius:10px;
+}
+
+/* FLOAT BUTTON */
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:linear-gradient(90deg,#7c3aed,#2563eb);
+  padding:12px 18px;
+  border-radius:50px;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#888;
+}
