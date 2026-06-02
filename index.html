@@ -395,6 +395,7 @@
     <form id="contactForm" class="contact-form" action="https://formsubmit.co/riteshy1526@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New message from portfolio contact form" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="about:blank" />
       <div class="form-row">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Your name" required class="contact-input" />
@@ -502,6 +503,40 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
       c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none';
     });
   });
+});
+
+// CONTACT FORM HANDLER
+document.getElementById('contactForm')?.addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const form=e.target;
+  const submitBtn=form.querySelector('button[type="submit"]');
+  const originalText=submitBtn.textContent;
+  
+  try{
+    const formData=new FormData(form);
+    await fetch(form.action,{method:'POST',body:formData});
+    
+    // Show success message
+    submitBtn.textContent='✓ Message Sent';
+    submitBtn.disabled=true;
+    submitBtn.style.opacity='0.6';
+    
+    // Reset form
+    form.reset();
+    
+    // Reset button after 3 seconds
+    setTimeout(()=>{
+      submitBtn.textContent=originalText;
+      submitBtn.disabled=false;
+      submitBtn.style.opacity='1';
+    },3000);
+  }catch(err){
+    console.error(err);
+    submitBtn.textContent='Error - Try Again';
+    setTimeout(()=>{
+      submitBtn.textContent=originalText;
+    },3000);
+  }
 });
 
 // PARTICLES
